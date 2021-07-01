@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Slider from "@material-ui/core/Slider";
 
 import { FaPlay, FaPause } from "react-icons/fa";
+import songs from "../../constants/resourses/songsObject.jsx";
 
-import signalFireSong from "../../resourses/DevilSoldHisSoul/SignalFire.mp3";
 import "./Player.scss";
 import { withStyles } from "@material-ui/core";
 
@@ -74,7 +74,7 @@ const Player = () => {
 
   const durationTimeConverted = convertDurationTime();
 
-  const handleChange = (event, value) => {
+  const handleChange = (event) => {
     audio.current.currentTime = Math.floor(event.target.value);
     setCurrentTime(Math.floor(event.target.value));
   };
@@ -91,7 +91,7 @@ const Player = () => {
           onTimeUpdate={setCurrentTimeDuration}
           onLoadedData={HandleDurationTime}
           ref={audio}
-          src={signalFireSong}
+          src={songs[0].songSrc}
           preload="metadata"
         />
         <div className="slider">

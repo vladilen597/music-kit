@@ -8,13 +8,60 @@
     width: 90%;
     margin: 0 auto;
     display: flex;
+    justify-content: space-between;
 }
 
 .music-card {
     color: #fff;
-    height: 320px;
+    position: relative;
+    margin: 10px;
+    height: 325px;
     background-color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
+    h3 {
+        color: orange;
+        margin: 4px;
+        margin-top: 10px;
+    }
+    p {
+        margin: 0;
+    }
+    .hover {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(#333, 0.5);
+        justify-content: center;
+        align-items: center;
+        transition: display 0.5s;
+    }
+    &:hover .hover {
+        display: flex;
+    }
+}
+
+.play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background: orange;
+    &:active {
+        background-color: rgb(150, 101, 11);
+    }
+}
+
+.play {
+    width: 60px;
+    height: 60px;
+    padding-left: 4px;
 }
