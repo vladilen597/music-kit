@@ -7,21 +7,21 @@ import sleepThumb from "../../resourses/RoyalBlood/sleepThumb.jpg";
 
 const songs = [
   {
-    id: 1,
+    id: 0,
     songName: "Signal Fire",
     songAuthor: "Devil Sold His Soul",
     songSrc: signalFireSong,
     albumCover: signalFireThumbnail,
   },
   {
-    id: 2,
+    id: 1,
     songName: "What You Need",
     songAuthor: "Happy Hour",
     songSrc: whatYouNeed,
     albumCover: whatYouNeedThumbnail,
   },
   {
-    id: 3,
+    id: 2,
     songName: "Sleep",
     songAuthor: "Royal Blood",
     songSrc: sleep,

@@ -1,47 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
-import Slider from "@material-ui/core/Slider";
 
 import { FaPlay, FaPause } from "react-icons/fa";
+import { connect } from "react-redux";
 import songs from "../../constants/resourses/songsObject.jsx";
+import togglePlaying from "../../store/actionCreators/togglePlaying.jsx";
 
 import "./Player.scss";
-import { withStyles } from "@material-ui/core";
 
-const Player = () => {
-  const StyledSlider = withStyles({
-    root: {
-      width: "90%",
-    },
-    thumb: {
-      width: "5px",
-      borderRadius: "none",
-      backgroundColor: "#fff",
-    },
-    rail: {
-      backgroundColor: "orange",
-      opacity: 0.8,
-    },
-    track: {
-      backgroundColor: "orange",
-      opacity: 0.2,
-    },
-    active: {
-      backgroundColor: "none",
-    },
-  })(Slider);
-
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(1);
+const Player = ({ songId, isPlaying, togglePlaying }) => {
+  const [currentSong, setCurrentSong] = useState(songId);
   const [currentTime, setCurrentTime] = useState(0);
   const [durationTime, setDurationTime] = useState(0);
 
   const audio = useRef();
 
-  const togglePlaying = () => {
-    setIsPlaying((prevState) => !prevState);
+  useEffect(() => {
     if (isPlaying) {
-      audio.current.pause();
-    } else audio.current.play();
+      audio.current.play();
+    } else audio.current.pause();
+  }, [songId, isPlaying]);
+
+  const handleTogglePlaying = () => {
+    togglePlaying();
   };
 
   const setCurrentTimeDuration = (event) => {
@@ -82,8 +62,8 @@ const Player = () => {
   return (
     <footer className="audio-player">
       <section className="audio-now-playing">
-        <h3>Signal Fire</h3>
-        <p>Devil Sold His Soul</p>
+        <h3>{songs[songId].songName}</h3>
+        <p>{songs[songId].songAuthor}</p>
       </section>
       <section className="audio-track">
         <audio
@@ -91,7 +71,7 @@ const Player = () => {
           onTimeUpdate={setCurrentTimeDuration}
           onLoadedData={HandleDurationTime}
           ref={audio}
-          src={songs[0].songSrc}
+          src={songs[songId].songSrc}
           preload="metadata"
         />
         <div className="slider">
@@ -107,7 +87,7 @@ const Player = () => {
           />
           <div>{durationTimeConverted}</div>
         </div>
-        <button onClick={togglePlaying} className="audio-play-button">
+        <button onClick={handleTogglePlaying} className="audio-play-button">
           {isPlaying ? (
             <FaPause className="pause-icon" />
           ) : (
@@ -119,4 +99,17 @@ const Player = () => {
   );
 };
 
-export default Player;
+const mapStateToProps = (state) => {
+  return {
+    songId: state.songId,
+    isPlaying: state.isPlaying,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    togglePlaying: () => dispatch(togglePlaying()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Player);
