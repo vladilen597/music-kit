@@ -1,6 +1,7 @@
 const initialStore = {
   songId: 0,
   isPlaying: false,
+  hoveredId: 0,
 };
 
 const songReducer = (state = initialStore, action) => {
@@ -19,6 +20,11 @@ const songReducer = (state = initialStore, action) => {
       return {
         ...state,
         isPlaying: true,
+      };
+    case "SET_HOVERED_ID":
+      return {
+        ...state,
+        hoveredId: action.payload,
       };
     default:
       return state;

@@ -5,10 +5,16 @@
 .music-list__cards {
   list-style: none;
   padding-top: 20px;
+  padding-left: 0;
   width: 90%;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.music-list-item {
+  perspective: 300px;
 }
 
 .music-card {
@@ -20,13 +26,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform-style: preserve-3d;
   h3 {
     color: orange;
     margin: 4px;
     margin-top: 10px;
+    transition: 0.5s;
   }
   p {
     margin: 0;
+    transition: 0.5s;
   }
   .hover {
     display: none;

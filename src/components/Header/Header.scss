@@ -1,43 +1,106 @@
 .header {
-    width: 100%;
-    height: 50px;
-    background-color: #222;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #fff;
-    span {
-        color: orange;
-    }
-    h1 {
-        margin: 0;
-    }
+  width: 100%;
+  height: 50px;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.header-logo-h1 {
+  font-size: 30px;
+  color: #fff;
+  margin: 0;
+  span {
+    color: orange;
+  }
 }
 
 .header-logo-tagline {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .drawer-button {
-    outline: none;
-    border: none;
-    background: none;
-    height: 50px;
-    cursor: pointer;
-    padding: 0 10px;
+  outline: none;
+  border: none;
+  background: none;
+  height: 50px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.drawer {
+  width: 100%;
+  height: 100%;
+  background-color: #222;
 }
 
 .drawer-icon {
-    font-size: 50px;
-    color: #fff;
-    &:active {
-        color: #888;
-    }
+  font-size: 50px;
+  color: #fff;
+  &:active {
+    color: #888;
+  }
 }
 
 .header-logo {
-    width: 50px;
-    height: 50px;
-    margin: 0 20px;
+  width: 50px;
+  height: 50px;
+  margin: 0 20px;
+}
+
+.drawer-logo {
+  width: 100px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 0 50px 0 10px;
+}
+
+.drawer-h1 {
+  font-size: 40px;
+}
+
+.drawer-list {
+  padding-left: 0;
+}
+
+.drawer-list-item {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 30px;
+  border: 1px solid #333;
+  padding-left: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  &:hover {
+    color: #aaa;
+  }
+  span {
+    text-decoration: none;
+  }
+}
+
+.link-icon {
+  font-size: 24px;
+  color: orange;
+  padding-right: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.active {
+  span {
+    color: orange;
+  }
 }

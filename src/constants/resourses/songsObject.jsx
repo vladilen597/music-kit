@@ -4,6 +4,8 @@ import whatYouNeed from "../../resourses/HappyHour/WhatYouNeed.mp3";
 import whatYouNeedThumbnail from "../../resourses/HappyHour/WhatYouNeedThumb.jpg";
 import sleep from "../../resourses/RoyalBlood/sleep.mp3";
 import sleepThumb from "../../resourses/RoyalBlood/sleepThumb.jpg";
+import hereafter from "../../resourses/Architects/hereafter.mp3";
+import hereafterThumb from "../../resourses/Architects/hereafterThumb.jpg";
 
 const songs = [
   {
@@ -26,6 +28,13 @@ const songs = [
     songAuthor: "Royal Blood",
     songSrc: sleep,
     albumCover: sleepThumb,
+  },
+  {
+    id: 3,
+    songName: "Hereafter",
+    songAuthor: "Architects",
+    songSrc: hereafter,
+    albumCover: hereafterThumb,
   },
 ];
 

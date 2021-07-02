@@ -4,11 +4,12 @@ import { FaPlay, FaPause } from "react-icons/fa";
 import { connect } from "react-redux";
 import songs from "../../constants/resourses/songsObject.jsx";
 import togglePlaying from "../../store/actionCreators/togglePlaying.jsx";
+import { Slider } from "@material-ui/core";
 
 import "./Player.scss";
 
 const Player = ({ songId, isPlaying, togglePlaying }) => {
-  const [currentSong, setCurrentSong] = useState(songId);
+  const [currentVolume, setCurrentVolume] = useState(100);
   const [currentTime, setCurrentTime] = useState(0);
   const [durationTime, setDurationTime] = useState(0);
 
@@ -59,6 +60,11 @@ const Player = ({ songId, isPlaying, togglePlaying }) => {
     setCurrentTime(Math.floor(event.target.value));
   };
 
+  const handleVolumeChange = (event) => {
+    audio.current.volume = event.target.value / 100;
+    setCurrentVolume(Math.floor(event.target.value));
+  };
+
   return (
     <footer className="audio-player">
       <section className="audio-now-playing">
@@ -94,6 +100,18 @@ const Player = ({ songId, isPlaying, togglePlaying }) => {
             <FaPlay className="play-icon" />
           )}
         </button>
+      </section>
+      <section className="volume-control">
+        <input
+          onChange={handleVolumeChange}
+          type="range"
+          step={1}
+          min={0}
+          max={100}
+          defaultValue={100}
+          className="slider-styled-volume"
+        />
+        <div>{currentVolume}</div>
       </section>
     </footer>
   );
