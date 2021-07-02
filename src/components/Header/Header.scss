@@ -2,4 +2,42 @@
     width: 100%;
     height: 50px;
     background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    span {
+        color: orange;
+    }
+    h1 {
+        margin: 0;
+    }
+}
+
+.header-logo-tagline {
+    display: flex;
+    align-items: center;
+}
+
+.drawer-button {
+    outline: none;
+    border: none;
+    background: none;
+    height: 50px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.drawer-icon {
+    font-size: 50px;
+    color: #fff;
+    &:active {
+        color: #888;
+    }
+}
+
+.header-logo {
+    width: 50px;
+    height: 50px;
+    margin: 0 20px;
 }
