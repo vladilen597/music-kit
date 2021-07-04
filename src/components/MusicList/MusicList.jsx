@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import setPlaying from "../../store/actionCreators/setPlaying.jsx";
 import togglePlaying from "../../store/actionCreators/togglePlaying.jsx";
 import setHoveredId from "../../store/actionCreators/setHoveredId.jsx";
+import { Link } from "@material-ui/core";
 
 const MusicList = ({
   setSongId,
@@ -23,12 +24,6 @@ const MusicList = ({
   const [zAxis, setZAxis] = useState(0);
   const [transition, setTransition] = useState("0.5s");
 
-  const cardRef = useRef();
-
-  useEffect(() => {
-    cardRef.current.offsetWidth;
-  }, []);
-
   const handleMouseEnter = (id) => {
     setHoveredId(id);
     setZAxis("50px");
@@ -36,15 +31,19 @@ const MusicList = ({
   };
 
   const handleMouseMove = (event) => {
-    setXAxis((event.nativeEvent.offsetX - event.target.offsetWidth / 2) / 25);
-    setYAxis((event.nativeEvent.offsetY - event.target.offsetHeight / 2) / 25);
+    if (event.target !== event.currentTarget) {
+      setXAxis((event.nativeEvent.offsetX - event.target.offsetWidth / 2) / 25);
+      setYAxis(
+        (event.nativeEvent.offsetY - event.target.offsetHeight / 2) / 25
+      );
+    }
   };
 
   const handleMouseLeave = () => {
     setYAxis(0);
     setXAxis(0);
-    setTransition("0.5s");
     setZAxis("0px");
+    setTransition("0.5s");
   };
 
   return (
@@ -56,7 +55,6 @@ const MusicList = ({
             <li key={song.id} className="music-list-item">
               <div
                 className="music-card"
-                ref={cardRef}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
                 onMouseEnter={() => {
@@ -71,25 +69,6 @@ const MusicList = ({
                     : { transform: `rotateX(0deg) rotateY(0deg)` }
                 }
               >
-                <img src={song.albumCover} />
-                <h3
-                  style={
-                    hoveredId === song.id
-                      ? { transform: `translateZ(${zAxis})` }
-                      : { transform: `translateZ(0px)` }
-                  }
-                >
-                  {song.songName}
-                </h3>
-                <p
-                  style={
-                    hoveredId === song.id
-                      ? { transform: `translateZ(${zAxis})` }
-                      : { transform: `translateZ(0px)` }
-                  }
-                >
-                  {song.songAuthor}
-                </p>
                 <div className="hover">
                   {isPlaying && songId === song.id ? (
                     <button
@@ -112,6 +91,9 @@ const MusicList = ({
                     </button>
                   )}
                 </div>
+                <img src={song.albumCover} />
+                <h3>{song.songName}</h3>
+                <p>{song.songAuthor}</p>
               </div>
             </li>
           );
