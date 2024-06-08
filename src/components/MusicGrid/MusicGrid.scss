@@ -1,0 +1,14 @@
+.music-grid {
+  width: 100%;
+  padding: 20px 0;
+
+  .music-grid__cards {
+    list-style: none;
+    padding-left: 0;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+    gap: 16px;
+  }
+}

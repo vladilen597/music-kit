@@ -1,0 +1,41 @@
+$orange: #ffa500;
+$dark-grey: #222;
+$light-grey: #333;
+$black: #000;
+$white: #fff;
+$dark-white: #ededed;
+$light-white: #ededed;
+
+$main-color: $orange;
+$main-color-dark: $black;
+$secondary-color-light: $white;
+$secondary-color-light-2: $dark-white;
+$secondary-color-dark: $dark-grey;
+$secondary-color-dark-2: $light-grey;
+
+$color-dark-low-opacity: rgba($black, 0.1);
+$color-light-low-opacity: rgba($white, 0.1);
+$secondary-color-low-opacity-light: rgba($black, 0.2);
+$secondary-color-low-opacity-dark: rgba($white, 0.2);
+
+:root {
+  --main-color: #{$main-color};
+  --main-text-color: #{$main-color};
+  --secondary-text-color: #{$main-color-dark};
+  --background-color: #{$secondary-color-light};
+  --background-color-secondary: #{$secondary-color-light-2};
+  --shadow-color: #{$color-dark-low-opacity};
+  --border-color: #{$secondary-color-dark-2};
+  --border-color-secondary: #{$secondary-color-low-opacity-light};
+}
+
+:root.dark {
+  --main-color: #{$main-color};
+  --main-text-color: #{$main-color};
+  --secondary-text-color: #{$secondary-color-light};
+  --background-color: #{$secondary-color-dark};
+  --background-color-secondary: #{$secondary-color-dark-2};
+  --shadow-color: #{$color-light-low-opacity};
+  --border-color: #{$secondary-color-light-2};
+  --border-color-secondary: #{$secondary-color-low-opacity-dark};
+}

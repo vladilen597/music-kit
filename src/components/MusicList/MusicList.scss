@@ -1,0 +1,14 @@
+.music-list {
+  width: 100%;
+  padding: 20px 0;
+
+  .music-list__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+}

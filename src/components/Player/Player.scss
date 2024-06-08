@@ -1,0 +1,118 @@
+.audio-player {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: var(--background-color);
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.time {
+  font-family: 'Reddit Mono', monospace;
+}
+
+.audio-track {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-now-playing {
+  color: var(--main-color);
+  width: 13%;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h3 {
+    font-family: 'Reddit Mono', monospace;
+    margin: 0;
+    font-size: 24px;
+  }
+  p {
+    font-family: 'Reddit Mono', monospace;
+    margin: 5px 0;
+    color: var(--secondary-text-color);
+  }
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+
+  .audio-play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    color: #fff;
+    background-color: orange;
+    cursor: pointer;
+    &:active {
+      background-color: rgb(150, 101, 11);
+    }
+  }
+
+  .control-song-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--main-color);
+  }
+}
+
+.play-icon {
+  width: 20px;
+  height: 20px;
+  padding-left: 4px;
+}
+
+.pause-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  color: var(--secondary-text-color);
+  user-select: none;
+}
+
+.slider-styled {
+  -webkit-appearance: none;
+  height: 1px;
+  width: 80%;
+  background-color: var(--main-color);
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1px;
+    height: 25px;
+    background: var(--main-color);
+  }
+}
+
+.slider-styled-volume {
+  -webkit-appearance: none;
+  height: 1px;
+  width: 80px;
+  background-color: var(--main-color);
+  margin-right: 10px;
+  &::-webkit-slider-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    background: var(--main-color);
+  }
+}

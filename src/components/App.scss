@@ -1,0 +1,19 @@
+@import '../static/styles/themes.scss';
+
+* {
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  width: 100%;
+  overflow-y: hidden;
+
+  .header-height-container {
+    height: 50px;
+  }
+  .track-height-container {
+    height: 80px;
+  }
+}

@@ -1,0 +1,12 @@
+.volume {
+  display: flex;
+  width: 120px;
+  align-items: center;
+  margin-top: -35px;
+  color: var(--secondary-text-color);
+  user-select: none;
+
+  .volume-counter {
+    font-family: 'Reddit Mono', monospace;
+  }
+}

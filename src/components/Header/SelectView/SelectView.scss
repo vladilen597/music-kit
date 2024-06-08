@@ -1,0 +1,40 @@
+.select-view {
+  display: flex;
+  align-items: center;
+  border: 1px solid orange;
+  border-radius: 8px;
+
+  .select-view__container {
+    display: block;
+    position: relative;
+    height: 100%;
+    padding: 3px 6px;
+    &:first-child {
+      border-right: 1px solid orange;
+    }
+    .select-view__icon {
+      fill: var(--secondary-text-color);
+      stroke: var(--secondary-text-color);
+    }
+    &.select-view__container--active {
+      .select-view__icon {
+        fill: var(--main-text-color);
+        stroke: var(--main-text-color);
+      }
+    }
+
+    .select-view__icon {
+      height: 100%;
+    }
+    .select-view__input {
+      cursor: pointer;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      margin: 0;
+      opacity: 0;
+    }
+  }
+}

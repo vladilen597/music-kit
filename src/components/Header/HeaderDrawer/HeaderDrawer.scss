@@ -1,0 +1,50 @@
+.header-logo-h1 {
+  font-family: 'Reddit Mono', monospace;
+  font-size: 30px;
+  color: var(--secondary-text-color);
+  margin: 0;
+  span {
+    color: var(--main-text-color);
+  }
+}
+
+.drawer-button {
+  outline: none;
+  border: none;
+  background: none;
+  height: 50px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.drawer {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color-secondary);
+}
+
+.drawer-icon {
+  font-size: 50px;
+  color: var(--secondary-text-color);
+  &:active {
+    color: #888;
+  }
+}
+
+.drawer-logo {
+  width: 100px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 0 50px 0 10px;
+}
+
+.drawer-h1 {
+  font-size: 40px;
+}
+
+.drawer-list {
+  padding-left: 0;
+}
